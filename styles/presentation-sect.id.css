@@ -1,0 +1,34 @@
+/* Page's presentation section class styles */
+section#presentation-sect {
+    min-height: 65vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 55px
+}
+
+
+section#presentation-sect > div:first-of-type {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px
+}
+
+
+section#presentation-sect img { max-height: 65vh }
+
+
+section#presentation-sect h2 { font-size: 40px }
+
+section#presentation-sect p { font-size: 15px }
+
+
+section#presentation-sect a.register-btn {
+    border-radius: 0px;
+    padding: 16px 50px;
+    text-decoration: none;
+    font-size: 18px
+}
+
+section#presentation-sect a.register-btn:hover { box-shadow: 0 0 12px var(--soft-blue); background-color: var(--dark-blue) }

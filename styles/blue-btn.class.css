@@ -1,0 +1,9 @@
+/* Black button class styles */
+.blue-btn {
+    border: none;
+    background-color: var(--soft-blue);
+    font-weight: bold;
+    color: white
+}
+
+.blue-btn:hover { cursor: pointer }
