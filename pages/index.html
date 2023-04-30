@@ -11,9 +11,10 @@
     <link rel="stylesheet" href="../styles/vars.css">
     <link rel="stylesheet" href="../styles/header.css">
     <link rel="stylesheet" href="../styles/logo.class.css">
-    <link rel="stylesheet" href="../styles/bg-blue-box.class.css">
     <link rel="stylesheet" href="../styles/presentation-sect.id.css">
     <link rel="stylesheet" href="../styles/blue-btn.class.css">
+    <link rel="stylesheet" href="../styles/main-sect.id.css">
+    <link rel="stylesheet" href="../styles/sobre-transition-btn.class.css">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,7 +65,106 @@
             </div>
         </section>
 
-        <section id="main-sect"></section>
+        <section id="main-sect">
+            <section id="sobre">
+                <div>
+                    <div>
+                        <button class="sobre-transition-btn left">&lt;</button>
+                    </div>
+
+                    <div id="sobre-content">
+                        <h3>Quem somos</h3>
+
+                        <img src="../images/world-connected.svg" alt="Mundo conectado pela internet.">
+
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo omnis nobis non, incidunt corporis accusantium veniam saepe cumque dolores ratione, nemo cupiditate, sed dolorum quisquam voluptate? Ipsum iure placeat ullam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex magnam, minima iusto aliquam a omnis laboriosam cupiditate officia dolor dolores quibusdam soluta eum quas. Nihil ullam deleniti debitis corrupti esse?</p>
+                    </div>
+
+                    <div>
+                        <button class="sobre-transition-btn right">&gt;</button>
+                    </div>
+                </div>
+
+                <div class="feedback-update">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </section>
+        </section>
     </main>
+
+
+    <!-- JavaScript -->
+    <script>
+        const sobreElement = document.getElementById('sobre');
+
+        const sobreContentData = [
+            {
+                title: 'Quem somos',
+                imageSrc: '../images/world-connected.svg',
+                imageAlt: 'Mundo conectado pela internet.',
+                paragraphContent: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo omnis nobis non, incidunt corporis accusantium veniam saepe cumque dolores ratione, nemo cupiditate, sed dolorum quisquam voluptate? Ipsum iure placeat ullam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex magnam, minima iusto aliquam a omnis laboriosam cupiditate officia dolor dolores quibusdam soluta eum quas. Nihil ullam deleniti debitis corrupti esse?'
+            },
+            {
+                title: 'Como nosso modelo funciona',
+                imageSrc: '../images/web.svg',
+                imageAlt: 'Dispositivos ao redor do mundo.',
+                paragraphContent: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta saepe officiis commodi quae quibusdam, nam ea nulla totam. Dolores expedita culpa reprehenderit fugiat facilis at incidunt aliquam nisi nam earum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur exercitationem perferendis iusto dolores quia ea aliquam voluptate reiciendis recusandae? Maxime eius nisi velit repudiandae, nobis obcaecati nesciunt? Facere, quaerat non?'
+            },
+            {
+                title: 'Nossas parcerias',
+                imageSrc: '../images/data.svg',
+                imageAlt: 'Cientistas analisando dados juntos.',
+                paragraphContent: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni possimus perferendis placeat reprehenderit animi deserunt iusto quam? Error, vel voluptatibus iste rem perspiciatis quos ipsum suscipit distinctio tempora eos a.'
+            }
+        ];
+
+        let currentSobreContentIndex = 0;
+        let currentSobreContent = sobreContentData[currentSobreContentIndex];
+
+        const [
+            leftTransitionBtn,
+            sobreContent,
+            rightTransitionBtn
+        ] = sobreElement.children[0].children;
+
+
+        rightTransitionBtn.addEventListener('click', () => {
+            sobreContent.style.opacity = 0;
+
+            setTimeout(() => {
+                currentSobreContentIndex++;
+                if (currentSobreContentIndex === sobreContentData.length) currentSobreContentIndex = 0;
+                
+                currentSobreContent = sobreContentData[currentSobreContentIndex];
+                sobreContent.children[0].textContent = currentSobreContent.title;
+                sobreContent.children[1].src = currentSobreContent.imageSrc;
+                sobreContent.children[1].alt = currentSobreContent.imageAlt;
+                sobreContent.children[2].textContent = currentSobreContent.paragraphContent;
+
+                sobreContent.style.opacity = 1
+            }, 500)
+        });
+
+        leftTransitionBtn.addEventListener('click', () => {
+            sobreContent.style.opacity = 0;
+
+            setTimeout(() => {
+                if (currentSobreContentIndex === 0) currentSobreContentIndex = sobreContentData.length;
+                currentSobreContentIndex--;
+                
+                currentSobreContent = sobreContentData[currentSobreContentIndex];
+                sobreContent.children[0].textContent = currentSobreContent.title;
+                sobreContent.children[1].src = currentSobreContent.imageSrc;
+                sobreContent.children[1].alt = currentSobreContent.imageAlt;
+                sobreContent.children[2].textContent = currentSobreContent.paragraphContent;
+
+                sobreContent.style.opacity = 1
+            }, 500)
+        })
+    </script>
 </body>
 </html>

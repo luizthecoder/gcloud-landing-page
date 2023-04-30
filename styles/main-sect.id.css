@@ -1,0 +1,31 @@
+#main-sect {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 70px
+}
+
+
+#main-sect #sobre > div:first-of-type {
+    height: 100vh;
+    padding: 25px 0;
+    background-color: var(--dark-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+#main-sect #sobre-content {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    color: white;
+    padding: 32px;
+    text-align: center
+}
+
+#main-sect #sobre-content h3 { font-size: 36px }
+
+#main-sect #sobre-content img { width: 36% }

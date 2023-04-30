@@ -1,0 +1,8 @@
+.sobre-transition-btn {
+    color: white;
+    font-weight: bold;
+    background-color: #0000;
+    font-size: 55px
+}
+
+.sobre-transition-btn:hover { cursor: pointer }
